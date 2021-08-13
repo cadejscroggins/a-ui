@@ -7,11 +7,11 @@
   "files": [
     "LICENSE",
     "README.md",
-    "c/*.js"
+    "c/**/.js"
   ],
   "scripts": {
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,json,graphql,md}\"",
-    "lint": "eslint --ignore-path .gitignore \"**/*.js\""
+    "format": "prettier --ignore-path .gitignore --write .",
+    "lint": "eslint --ignore-path .gitignore c"
   },
   "dependencies": {
     "aws-appsync-auth-link": "^3.0.6",
