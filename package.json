@@ -7,7 +7,7 @@
   "files": [
     "LICENSE",
     "README.md",
-    "c/**/.js"
+    "c/**/*.js"
   ],
   "scripts": {
     "format": "prettier --ignore-path .gitignore --write .",
