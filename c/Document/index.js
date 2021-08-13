@@ -13,7 +13,7 @@ const Document = ({
   privateRouteRedirect,
   publicRouteRedirect,
 }) => (
-  <Html>
+  <Html lang="en">
     <Head />
     <body>
       {!!privateRouteRedirect && !!publicRouteRedirect && (
