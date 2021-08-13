@@ -1,5 +1,5 @@
 import * as A from '@apollo/client';
-import Amplify, { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 import React from 'react';
 import { createAuthLink } from 'aws-appsync-auth-link';
 import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
@@ -7,14 +7,12 @@ import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
 import { setContext } from '@apollo/client/link/context';
 import AuikContent from './AuikContent';
 
-Amplify.configure({
-  Auth: {
-    identityPoolId: process.env.authIdentityPoolId,
-    mandatorySignIn: process.env.authMandatorySignIn === 'true',
-    region: process.env.authRegion,
-    userPoolId: process.env.authUserPoolId,
-    userPoolWebClientId: process.env.authUserPoolWebClientId,
-  },
+Auth.configure({
+  identityPoolId: process.env.authIdentityPoolId,
+  mandatorySignIn: process.env.authMandatorySignIn === 'true',
+  region: process.env.authRegion,
+  userPoolId: process.env.authUserPoolId,
+  userPoolWebClientId: process.env.authUserPoolWebClientId,
 });
 
 const appsyncLinkConfig = {
