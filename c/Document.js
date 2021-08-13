@@ -3,7 +3,7 @@ import { ColorModeScript } from '@chakra-ui/react';
 import { Head, Html, Main, NextScript } from 'next/document';
 import AuthRedirectScript from './AuthRedirectScript';
 
-const AuikDocument = ({
+const Document = ({
   __NEXT_DATA__: {
     props: {
       pageProps: { isPrivateRoute, isPublicRoute },
@@ -14,7 +14,8 @@ const AuikDocument = ({
   publicRouteRedirect,
 }) => (
   <Html>
-    <Head>
+    <Head />
+    <body>
       {!!privateRouteRedirect && !!publicRouteRedirect && (
         <AuthRedirectScript
           isPrivateRoute={isPrivateRoute}
@@ -23,8 +24,6 @@ const AuikDocument = ({
           publicRouteRedirect={publicRouteRedirect}
         />
       )}
-    </Head>
-    <body>
       {initialColorMode && (
         <ColorModeScript initialColorMode={initialColorMode} />
       )}
@@ -34,10 +33,4 @@ const AuikDocument = ({
   </Html>
 );
 
-AuikDocument.defaultProps = {
-  initialColorMode: null,
-  privateRouteRedirect: null,
-  publicRouterRedirect: null,
-};
-
-export default AuikDocument;
+export default Document;

@@ -1,19 +1,10 @@
 import * as A from '@apollo/client';
-import Auth from '@aws-amplify/auth';
 import React from 'react';
 import { createAuthLink } from 'aws-appsync-auth-link';
 import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { setContext } from '@apollo/client/link/context';
-import AuikContent from './AuikContent';
-
-Auth.configure({
-  identityPoolId: process.env.authIdentityPoolId,
-  mandatorySignIn: process.env.authMandatorySignIn === 'true',
-  region: process.env.authRegion,
-  userPoolId: process.env.authUserPoolId,
-  userPoolWebClientId: process.env.authUserPoolWebClientId,
-});
+import PageProvider from './PageProvider';
+import Auth from './Auth';
 
 const appsyncLinkConfig = {
   auth: {
@@ -24,7 +15,7 @@ const appsyncLinkConfig = {
   url: process.env.apiGraphqlEndpoint,
 };
 
-const AuikApp = (props) => (
+const DataProvider = (props) => (
   <A.ApolloProvider
     client={
       new A.ApolloClient({
@@ -42,8 +33,8 @@ const AuikApp = (props) => (
       })
     }
   >
-    <AuikContent {...props} />
+    <PageProvider {...props} />
   </A.ApolloProvider>
 );
 
-export default AuikApp;
+export default DataProvider;
