@@ -3,7 +3,7 @@ import React from 'react';
 import { createAuthLink } from 'aws-appsync-auth-link';
 import { createSubscriptionHandshakeLink } from 'aws-appsync-subscription-link';
 import { setContext } from '@apollo/client/link/context';
-import Auth from '../Auth';
+import Auth from '../../../Auth';
 
 const appsyncLinkConfig = {
   auth: {
