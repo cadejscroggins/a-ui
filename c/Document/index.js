@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColorModeScript } from '@chakra-ui/react';
 import { Head, Html, Main, NextScript } from 'next/document';
-import AuthRedirectScript from './AuthRedirectScript';
+import AuthRedirectScript from './components/AuthRedirectScript';
 
 const Document = ({
   __NEXT_DATA__: {
